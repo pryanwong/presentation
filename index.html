@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canadian Federal Civil Service Employees by Region</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Canadian Federal Civil Service Employees by Region">
+  <meta name="author" content="Sean Ferenci, P.Eng.">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Canadian Federal Civil Service Employees by Region</h1>
+    <h2>View by Year</h2>
+    <p>Sean Ferenci, P.Eng.<br/>Developing Data Products Student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Canadians Want to Know</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Where Federal Jobs are located</li>
+<li>How many jobs are in the National Capital Region</li>
+<li>They want to be able to see job shifts over time</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What My App Does</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>It lets users view federal employment numbers by province</li>
+<li>They can change the year through a simple selection box</li>
+<li>Users can seperate the national capital region from Ontario and Quebec data</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>A Typical Chart</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- BarChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+
+<!-- Thu Sep 18 22:04:20 2014 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataBarChartID287c10cd5df3 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "NL",
+4605 
+],
+[
+ "PE",
+3119 
+],
+[
+ "NS",
+10598 
+],
+[
+ "NB",
+7899 
+],
+[
+ "QC",
+56465 
+],
+[
+ "ON",
+118270 
+],
+[
+ "MB",
+10326 
+],
+[
+ "SK",
+5957 
+],
+[
+ "AB",
+14447 
+],
+[
+ "BC",
+22801 
+],
+[
+ "YT",
+363 
+],
+[
+ "NT",
+487 
+],
+[
+ "NU",
+285 
+],
+[
+ "Abroad",
+1516 
+] 
+];
+data.addColumn('string','Province');
+data.addColumn('number','Employees');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartBarChartID287c10cd5df3() {
+var data = gvisDataBarChartID287c10cd5df3();
+var options = {};
+options["allowHtml"] = true;
+options["isStacked"] = false;
+options["orientation"] = "horizontal";
+options["hAxis"] = {title:'Province or Territory',format:'####'};
+options["vAxis"] = {title: 'Employees'};
+options["legend"] = {position: 'none'};
+options["width"] =   1000;
+options["height"] =    500;
+options["title"] = "Federal Employees by Province for  2014 ";
+
+    var chart = new google.visualization.BarChart(
+    document.getElementById('BarChartID287c10cd5df3')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartBarChartID287c10cd5df3);
+})();
+function displayChartBarChartID287c10cd5df3() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID287c10cd5df3"></script>
+ 
+
+<!-- divChart -->
+
+<div id="BarChartID287c10cd5df3" 
+  style="width: 1000; height: 500;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>About the Chart</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Data was taken from the Open Government site of the Canadian Government</li>
+<li>Easy to read and Understand</li>
+<li>Google bar chart implementation with HTML5 makes it easy for users to get precise figures by hovering over areas of interest</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Canadians Want to Know'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='What My App Does'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='A Typical Chart'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='About the Chart'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title=''>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

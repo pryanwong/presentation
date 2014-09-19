@@ -1,0 +1,62 @@
+---
+title       : Canadian Federal Civil Service Employees by Region
+subtitle    : View by Year
+author      : Sean Ferenci, P.Eng.
+job         : Developing Data Products Student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Canadians Want to Know
+
+1. Where Federal Jobs are located
+2. How many jobs are in the National Capital Region
+3. They want to be able to see job shifts over time
+
+--- .class #id 
+
+## What My App Does
+
+1. It lets users view federal employment numbers by province
+2. They can change the year through a simple selection box
+3. Users can seperate the national capital region from Ontario and Quebec data
+
+--- .class #id
+
+## A Typical Chart
+
+```{r results = 'asis', commment = NA, message = F, echo = F}
+require(googleVis)
+barchart <- gvisBarChart(fedbyprovince[fedbyprovince$Year == 2014,], 
+                         xvar="Province", 
+                         yvar=c("Employees"),
+                         options=list(isStacked=FALSE,orientation="horizontal",                                                                                       
+                                      hAxis="{title:'Province or Territory',format:'####'}",
+                                      vAxis="{title: 'Employees'}",
+                                      legend="{position: 'none'}",
+                                      width=1000,
+                                      height=500,
+                                      title=paste("Federal Employees by Province for ","2014","")))
+
+print(barchart, tag='chart')
+                                                      
+```
+
+--- .class #id 
+
+## About the Chart
+
+1. Data was taken from the Open Government site of the Canadian Government
+2. Easy to read and Understand
+3. Google bar chart implementation with HTML5 makes it easy for users to get precise figures by hovering over areas of interest
+
+
+--- .class #id
+
+
+
+
